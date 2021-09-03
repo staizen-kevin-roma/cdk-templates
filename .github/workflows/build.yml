@@ -34,3 +34,6 @@ jobs:
       env:
         GITHUB_TOKEN: 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 
         SONAR_TOKEN: 9f0eba1b73bca7a34ee104e5c5392669a2832d4a
+      with:
+        args: >
+          -Dsonar.qualitygate.wait=true
