@@ -30,7 +30,7 @@ jobs:
     - run: npm run build --if-present
     
     - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
+      uses: sonarsource/sonarqube-scan-action@master
       env:
-        GITHUB_TOKEN: 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 
-        SONAR_TOKEN: 9f0eba1b73bca7a34ee104e5c5392669a2832d4a
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
