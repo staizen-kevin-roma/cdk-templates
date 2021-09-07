@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "jest",
+    "test": "jest --coverage --coverageDirectory=output/coverage/jest",
     "cdk": "cdk"
   },
   "devDependencies": {
@@ -15,7 +15,7 @@
     "@types/jest": "^26.0.10",
     "@types/node": "10.17.27",
     "aws-cdk": "1.87.1",
-    "jest": "^26.4.2",
+    "jest": "^26.6.3",
     "ts-jest": "^26.2.0",
     "ts-node": "^9.0.0",
     "typescript": "~3.9.7"
@@ -25,5 +25,10 @@
     "@aws-cdk/aws-cloudfront-origins": "^1.112.0",
     "@aws-cdk/core": "1.87.1",
     "source-map-support": "^0.5.16"
+  },
+  "jest": {
+    "coverageReporters": [
+      "lcov"
+    ]
   }
 }
