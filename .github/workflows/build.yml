@@ -29,6 +29,7 @@ jobs:
     - run: npm install
     - run: npm ci
     - run: npm run build --if-present
+    - run: npm run test
 
     - name: Retrieve entire repository history
       run: |
@@ -44,3 +45,9 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+    
+    - name: Upload JaCoCo coverage report
+      uses: actions/upload-artifact@v2
+      with:
+        name: jacoco-report
+        path: cloudfront/output/coverage/jest/lcov.info
