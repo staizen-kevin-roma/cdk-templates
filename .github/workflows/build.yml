@@ -26,12 +26,18 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm ci
-    - run: npm run build --if-present
     - run: |
         cd cloudfront
-        npm run
+        npm install
+    - run: |
+        cd cloudfront
+        npm ci
+    - run: |
+        cd cloudfront
+        npm run build --if-present
+    - run: |
+        cd cloudfront
+        npm run test
 
     - name: Retrieve entire repository history
       run: |
@@ -43,7 +49,7 @@ jobs:
         args: >
           -Dsonar.qualitygate.wait=true
           -Dsonar.scm.provider=git
-          -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+          -Dsonar.javascript.lcov.reportPaths=cloudfront/output/coverage/jest/lcov.info
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
