@@ -26,18 +26,22 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - run: |
+    - name: npm install
+      run: |
         cd cloudfront
         npm install
-    - run: |
+    - name: npm ci
+      run: |
         cd cloudfront
         npm ci
-    - run: |
+    - name: npm run build --if-present
+      run: |
         cd cloudfront
         npm run build --if-present
-    - run: |
-        cd cloudfront
-        npm run test
+    #- name: npm run test
+     # run: |
+      #  cd cloudfront
+       # npm run test
 
     - name: Retrieve entire repository history
       run: |
