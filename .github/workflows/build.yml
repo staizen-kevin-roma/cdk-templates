@@ -58,6 +58,7 @@ jobs:
       with:
         name: lint-report
         path: cloudfront/output/eslint-report.html
+        path: cloudfront/output/eslint-report.json
 
     - name: Upload code coverage report
       uses: actions/upload-artifact@v2
