@@ -21,6 +21,10 @@ jobs:
       uses: actions/checkout@v2
       with:
         ref: ${{ github.HEAD_REF }}
+    
+    - name: Retrieve entire repository history
+      run: |
+        git fetch --prune --unshallow
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
@@ -42,11 +46,17 @@ jobs:
      # run: |
       #  cd cloudfront
        # npm run test
-
-    - name: Retrieve entire repository history
+    - name: npm run lint
       run: |
-        git fetch --prune --unshallow
-    
+        cd cloudfront
+        npm run lint
+
+    - name: Upload lint report
+      uses: actions/upload-artifact@v2
+      with:
+        name: lint-report
+        path: cloudfront/output/report.json
+
     - name: SonarCloud Scan
       uses: sonarsource/sonarqube-scan-action@master
       with:
@@ -54,12 +64,7 @@ jobs:
           -Dsonar.qualitygate.wait=true
           -Dsonar.scm.provider=git
           -Dsonar.javascript.lcov.reportPaths=cloudfront/output/coverage/jest/lcov.info
+          -Dsonar.eslint.reportPaths=cloudfront/output/report.json
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-    
-    - name: Upload JaCoCo coverage report
-      uses: actions/upload-artifact@v2
-      with:
-        name: jacoco-report
-        path: cloudfront/output/coverage/jest/lcov.info
