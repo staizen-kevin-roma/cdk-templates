@@ -42,10 +42,11 @@ jobs:
       run: |
         cd cloudfront
         npm run build --if-present
-    #- name: npm run test
-     # run: |
-      #  cd cloudfront
-       # npm run test
+    - name: npm run test
+      run: |
+        cd cloudfront
+        npm run test
+      continue-on-error: true
     - name: npm run lint
       run: |
         cd cloudfront
@@ -56,6 +57,12 @@ jobs:
       with:
         name: lint-report
         path: cloudfront/output/report.json
+
+    - name: Upload JaCoCo coverage report
+      uses: actions/upload-artifact@v2
+      with:
+        name: jacoco-report
+        path: cloudfront/output/coverage/jest/lcov.info
 
     - name: SonarCloud Scan
       uses: sonarsource/sonarqube-scan-action@master
