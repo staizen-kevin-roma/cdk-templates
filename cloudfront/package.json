@@ -8,7 +8,8 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest --coverage --coverageDirectory=output/coverage/jest",
-    "lint": "eslint . --ext .ts -f json -o output/report.json",
+    "lintjson": "eslint . --ext .ts -f json -o output/eslint-report.json",
+    "linthtml": "eslint . --ext .ts -o output/eslint-report.html",
     "cdk": "cdk"
   },
   "devDependencies": {

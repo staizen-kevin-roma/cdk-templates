@@ -50,19 +50,20 @@ jobs:
     - name: npm run lint
       run: |
         cd cloudfront
-        npm run lint
+        npm run linthtml
+        npm run lintjson
 
     - name: Upload lint report
       uses: actions/upload-artifact@v2
       with:
         name: lint-report
-        path: cloudfront/output/report.json
+        path: cloudfront/output/eslint-report.html
 
-    - name: Upload JaCoCo coverage report
+    - name: Upload code coverage report
       uses: actions/upload-artifact@v2
       with:
         name: code-coverage-report
-        path: cloudfront/output/coverage/jest/lcov.info
+        path: cloudfront/output/coverage/jest/lcov-report/index.html
 
     - name: Change eslint file paths to relative paths
       run: |
