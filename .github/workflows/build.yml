@@ -61,8 +61,13 @@ jobs:
     - name: Upload JaCoCo coverage report
       uses: actions/upload-artifact@v2
       with:
-        name: jacoco-report
+        name: code-coverage-report
         path: cloudfront/output/coverage/jest/lcov.info
+
+    - name: Change eslint file paths to relative paths
+      run: |
+        cd cloudfront/output
+        sed -i 's+/home/runner/work/***+/github/workspace+g' report.json
 
     - name: SonarCloud Scan
       uses: sonarsource/sonarqube-scan-action@master
