@@ -72,7 +72,8 @@ jobs:
         cd cloudfront/output
         echo $(pwd)
         echo $(ls)
-        sed -i '' -e 's+/home/runner/work/cdk-templates/cdk-templates+/github/workspace+g' eslint-report.json
+       # sed -i '' -e 's+/home/runner/work/cdk-templates/cdk-templates+/github/workspace+g' eslint-report.json
+        sed -i.bak 's+/home/runner/work/cdk-templates/cdk-templates+/github/workspace+g' eslint-report.json
 
     - name: SonarCloud Scan
       uses: sonarsource/sonarqube-scan-action@master
