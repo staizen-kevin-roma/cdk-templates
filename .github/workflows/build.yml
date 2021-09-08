@@ -53,14 +53,6 @@ jobs:
         npm run linthtml
         npm run lintjson
 
-    - name: Upload lint report
-      uses: actions/upload-artifact@v2
-      with:
-        name: lint-report
-        path: |
-          cloudfront/output/eslint-report.html
-          cloudfront/output/eslint-report.json
-
     - name: Upload code coverage report
       uses: actions/upload-artifact@v2
       with:
@@ -72,7 +64,15 @@ jobs:
         cd cloudfront/output
         echo $(pwd)
         echo $(ls)
-        sed -i.bak "s+/home/runner/work/cdk-templates/cdk-templates+/github/workspace+g" "eslint-report.json"
+        sed -i "s+/home/runner/work/cdk-templates/cdk-templates+/github/workspace+g" "eslint-report.json"
+
+    - name: Upload lint report
+      uses: actions/upload-artifact@v2
+      with:
+        name: lint-report
+        path: |
+          cloudfront/output/eslint-report.html
+          cloudfront/output/eslint-report.json
 
     - name: SonarCloud Scan
       uses: sonarsource/sonarqube-scan-action@master
@@ -81,7 +81,7 @@ jobs:
           -Dsonar.qualitygate.wait=true
           -Dsonar.scm.provider=git
           -Dsonar.javascript.lcov.reportPaths=cloudfront/output/coverage/jest/lcov.info
-          -Dsonar.eslint.reportPaths=cloudfront/output/report.json
+          -Dsonar.eslint.reportPaths=cloudfront/output/eslint-report.json
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
