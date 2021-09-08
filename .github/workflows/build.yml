@@ -67,8 +67,8 @@ jobs:
 
     - name: Change eslint file paths to relative paths
       run: |
-        cd cloudfront/output
-        sed -i 's+/home/runner/work/***+/github/workspace+g' report.json
+        cd cloudfront/output/
+        sed -i 's+/home/runner/work/***+/github/workspace+g' eslint-report.json
 
     - name: SonarCloud Scan
       uses: sonarsource/sonarqube-scan-action@master
