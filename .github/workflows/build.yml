@@ -70,6 +70,8 @@ jobs:
     - name: Change eslint file paths to relative paths
       run: |
         cd cloudfront/output
+        echo $(pwd)
+        echo $(ls)
         sed -i '' -e 's+/home/runner/work/cdk-templates/cdk-templates+/github/workspace+g' eslint-report.json
 
     - name: SonarCloud Scan
