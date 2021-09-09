@@ -84,4 +84,5 @@ jobs:
           -Dsonar.eslint.reportPaths=cloudfront/output/eslint-report.json
       env:
         SONAR_TOKEN: fc33f4c0fb1213c5971dc40343a061951685d377
+        GITHUB_TOKEN: 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
         #SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
