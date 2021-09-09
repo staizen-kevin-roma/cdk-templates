@@ -83,5 +83,5 @@ jobs:
           -Dsonar.javascript.lcov.reportPaths=cloudfront/output/coverage/jest/lcov.info
           -Dsonar.eslint.reportPaths=cloudfront/output/eslint-report.json
       env:
-        SONAR_TOKEN: ${{ secrets.SONAR_CLOUDTOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        SONAR_TOKEN: fc33f4c0fb1213c5971dc40343a061951685d377
+        #SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
