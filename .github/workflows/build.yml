@@ -29,6 +29,7 @@ jobs:
     - name: Retrieve entire repository history
       run: |
         git fetch --prune --unshallow
+      continue-on-error: true
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
