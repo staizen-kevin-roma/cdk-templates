@@ -1,3 +1,18 @@
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=staizen-kevin-roma_cdk-templates)](https://sonarcloud.io/dashboard?id=staizen-kevin-roma_cdk-templates)
+
+[![CI](https://github.com/markdown-it/markdown-it/workflows/CI/badge.svg)](https://github.com/staizen-kevin-roma/cdk-templates/actions)
+[![NPM version](https://img.shields.io/badge/npm-v15.14.0-blue)](https://github.com/staizen-kevin-roma/cdk-templates)
+
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=staizen-kevin-roma_cdk-templates&metric=bugs)](https://sonarcloud.io/dashboard?id=staizen-kevin-roma_cdk-templates)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=staizen-kevin-roma_cdk-templates&metric=code_smells)](https://sonarcloud.io/dashboard?id=staizen-kevin-roma_cdk-templates)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=staizen-kevin-roma_cdk-templates&metric=coverage)](https://sonarcloud.io/dashboard?id=staizen-kevin-roma_cdk-templates)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=staizen-kevin-roma_cdk-templates&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=staizen-kevin-roma_cdk-templates)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=staizen-kevin-roma_cdk-templates&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=staizen-kevin-roma_cdk-templates)
+
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=staizen-kevin-roma_cdk-templates&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=staizen-kevin-roma_cdk-templates)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=staizen-kevin-roma_cdk-templates&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=staizen-kevin-roma_cdk-templates)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=staizen-kevin-roma_cdk-templates&metric=security_rating)](https://sonarcloud.io/dashboard?id=staizen-kevin-roma_cdk-templates)
+
 # cdk-templates
 Staizen CDK templates for different CloudFormation deployments
 
@@ -21,5 +36,3 @@ Staizen CDK templates for different CloudFormation deployments
 `npm run build`
 
 `cdk deploy --parameters appsyncURL=[AppSync URL] --parameters appsyncKey=[AppSync Key] --parameters apiURL=[APIG URL] --parameters apiPath=/[stage] --profile [AWS profile]`
-
-## test commit
