@@ -36,6 +36,3 @@ Staizen CDK templates for different CloudFormation deployments
 `npm run build`
 
 `cdk deploy --parameters appsyncURL=[AppSync URL] --parameters appsyncKey=[AppSync Key] --parameters apiURL=[APIG URL] --parameters apiPath=/[stage] --profile [AWS profile]`
-<<<<<<< HEAD
-
-## test commit

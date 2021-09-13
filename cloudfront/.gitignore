@@ -4,6 +4,7 @@
 node_modules
 .scannerwork
 .DS_Store
+output
 
 # CDK asset staging directory
 .cdk.staging
