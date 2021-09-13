@@ -2,8 +2,9 @@
 !jest.config.js
 *.d.ts
 node_modules
+.scannerwork
+.DS_Store
 
 # CDK asset staging directory
 .cdk.staging
 cdk.out
-.DS_Store
