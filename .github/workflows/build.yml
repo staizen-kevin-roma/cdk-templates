@@ -5,7 +5,7 @@ on:
     branches: [ main ]
   pull_request_target:
     types: [ opened, reopened, synchronize, edited ]
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -90,5 +90,5 @@ jobs:
           -Dsonar.pullrequest.github.repository=${{ github.repository }}
       env:
         SONAR_TOKEN: fc33f4c0fb1213c5971dc40343a061951685d377
-        GITHUB_TOKEN: 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
+        GITHUB_TOKEN: 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
         #SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
