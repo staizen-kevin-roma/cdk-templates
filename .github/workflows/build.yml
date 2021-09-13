@@ -69,8 +69,6 @@ jobs:
     - name: Change eslint file paths to relative paths
       run: |
         cd cloudfront/output
-        echo $(pwd)
-        echo $(ls)
         sed -i "s+/home/runner/work/cdk-templates/cdk-templates+/github/workspace+g" "eslint-report.json"
 
     - name: Upload lint report
@@ -90,6 +88,7 @@ jobs:
         args: >
           -Dsonar.qualitygate.wait=true
           -Dsonar.scm.provider=git
+          -Dsonar.branch.name=test-pr
           -Dsonar.javascript.lcov.reportPaths=cloudfront/output/coverage/jest/lcov.info
           -Dsonar.eslint.reportPaths=cloudfront/output/eslint-report.json
           -Dsonar.pullrequest.key=${{ github.event.number }}
