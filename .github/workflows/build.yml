@@ -92,6 +92,6 @@ jobs:
           -Dsonar.pullrequest.base=${{ github.BASE_REF }}
           -Dsonar.pullrequest.github.repository=${{ github.repository }}
       env:
-        SONAR_TOKEN: fc33f4c0fb1213c5971dc40343a061951685d377
-        GITHUB_TOKEN: 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
+        SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         #SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
