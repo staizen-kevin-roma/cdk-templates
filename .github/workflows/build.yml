@@ -2,7 +2,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+      - test-pr
   pull_request:
     types: [ opened, reopened, synchronize, edited ]
     branches:
@@ -81,6 +83,9 @@ jobs:
 
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         args: >
           -Dsonar.qualitygate.wait=true
@@ -91,7 +96,22 @@ jobs:
           -Dsonar.pullrequest.branch=${{ github.HEAD_REF }}
           -Dsonar.pullrequest.base=${{ github.BASE_REF }}
           -Dsonar.pullrequest.github.repository=${{ github.repository }}
+      
+    - name: Insert Quality Gate markdown in README
+      uses: muesli/readme-scribe@master
       env:
-        SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        #SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      with:
+          template: "cloudfront/templates/README.md.tpl"
+          writeTo: "README.md"
+    
+    - name: Auto commit README
+      uses: stefanzweifel/git-auto-commit-action@v4
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        commit_message: Update generated README
+        branch: test-pr
+        commit_user_name: staizen-kevin-roma
+        commit_user_email: kevin.roma@staizen.com
+        commit_author: staizen-kevin-roma <kevin.roma@staizen.com>
