@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1631511120668" clover="3.2.0">
-  <project timestamp="1631511120668" name="All files">
+<coverage generated="1631511606891" clover="3.2.0">
+  <project timestamp="1631511606891" name="All files">
     <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1" elements="20" coveredelements="18" complexity="0" loc="15" ncloc="15" packages="1" files="1" classes="1"/>
     <file name="cloudfront-stack.ts" path="/home/runner/work/cdk-templates/cdk-templates/cloudfront/lib/cloudfront-stack.ts">
       <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
