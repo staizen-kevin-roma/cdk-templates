@@ -1,4 +1,4 @@
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?branch=test-pr&project=staizen-kevin-roma_cdk-templates&metric=alert_status)](https://sonarcloud.io/dashboard?id=staizen-kevin-roma_cdk-templates&branch=test-pr)
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?branch=test-pr&project=staizen-kevin-roma_cdk-templates)](https://sonarcloud.io/dashboard?id=staizen-kevin-roma_cdk-templates&branch=test-pr)
 
 [![CI](https://github.com/markdown-it/markdown-it/workflows/CI/badge.svg)](https://github.com/staizen-kevin-roma/cdk-templates/actions)
 [![NPM version](https://img.shields.io/badge/npm-v15.14.0-blue)](https://github.com/staizen-kevin-roma/cdk-templates)
