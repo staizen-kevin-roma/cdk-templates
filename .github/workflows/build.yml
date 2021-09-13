@@ -95,6 +95,7 @@ jobs:
           -Dsonar.pullrequest.branch=${{ github.HEAD_REF }}
           -Dsonar.pullrequest.base=${{ github.BASE_REF }}
           -Dsonar.pullrequest.github.repository=${{ github.repository }}
+      continue-on-error: true
       
     - name: Insert Quality Gate markdown in README
       uses: muesli/readme-scribe@master
