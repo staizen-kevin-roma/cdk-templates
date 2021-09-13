@@ -5,11 +5,11 @@ on:
     branches:
       - main
       - test-pr
-  pull_request:
-    types: [ opened, reopened, synchronize, edited ]
-    branches:
-      - main
-      - test-pr
+  #pull_request:
+    #types: [ opened, reopened, synchronize, edited ]
+    #branches:
+      #- main
+      #- test-pr
 
 jobs:
   build:
