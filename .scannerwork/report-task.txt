@@ -1,8 +1,0 @@
-organization=staizen-kevin-roma
-projectKey=staizen-kevin-roma_cdk-templates
-serverUrl=https://sonarcloud.io
-serverVersion=8.0.0.23159
-branch=test-pr
-dashboardUrl=https://sonarcloud.io/dashboard?id=staizen-kevin-roma_cdk-templates&branch=test-pr&resolved=false
-ceTaskId=AXvdpR89IHuiaklFspZE
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXvdpR89IHuiaklFspZE
