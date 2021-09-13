@@ -3,9 +3,11 @@ name: Node.js CI
 on:
   push:
     branches: [ main ]
-  pull_request_target:
+  pull_request:
     types: [ opened, reopened, synchronize, edited ]
-    branches: [ main ]
+    branches:
+      - main
+      - test-pr
 
 jobs:
   build:
@@ -90,5 +92,5 @@ jobs:
           -Dsonar.pullrequest.github.repository=${{ github.repository }}
       env:
         SONAR_TOKEN: fc33f4c0fb1213c5971dc40343a061951685d377
-        GITHUB_TOKEN: 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
+        GITHUB_TOKEN: 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
         #SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
