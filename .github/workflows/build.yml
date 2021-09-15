@@ -37,9 +37,6 @@ jobs:
       id: BRANCH_NAME
       env:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true' 
-    
-    - name: Run test output
-      run: echo ${{ steps.BRANCH_NAME.outputs.BRANCH_NAME }}
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
@@ -120,8 +117,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         commit_message: Update generated README
-        branch: ${{ github.head_ref }}
-        commit_user_name: staizen-kevin-roma
-        commit_user_email: kevin.roma@staizen.com
-        commit_author: staizen-kevin-roma <kevin.roma@staizen.com>
+        branch: ${{ steps.BRANCH_NAME.outputs.BRANCH_NAME }}
+        commit_user_name: ${{ github.actor }}
+        commit_user_email: "${{ github.actor }}@users.noreply.github.com"
+        commit_author: "${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>"
       if: always()
