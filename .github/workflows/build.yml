@@ -104,6 +104,7 @@ jobs:
       with:
           template: "cloudfront/templates/README.md.tpl"
           writeTo: "README.md"
+      if: always()
     
     - name: Auto commit README
       uses: stefanzweifel/git-auto-commit-action@v4
@@ -115,3 +116,4 @@ jobs:
         commit_user_name: staizen-kevin-roma
         commit_user_email: kevin.roma@staizen.com
         commit_author: staizen-kevin-roma <kevin.roma@staizen.com>
+      if: always()
