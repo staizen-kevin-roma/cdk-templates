@@ -32,9 +32,8 @@ jobs:
         git fetch --prune --unshallow
       continue-on-error: true
 
-    - name: Set environment variable names
-      run: |
-        echo "::set-env name=BRANCH_NAME::${GITHUB_REF##*/}"
+    - name: Set branch output for input arg
+      run: echo "::set-output name=BRANCH_NAME::${GITHUB_REF##*/}"
       id: BRANCH_NAME
       env:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true' 
