@@ -9,7 +9,6 @@ on:
     types: [ opened, reopened, synchronize, edited ]
     branches:
       - main
-      - test-pr-2
 
 jobs:
   build:
