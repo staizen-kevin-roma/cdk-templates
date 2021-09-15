@@ -34,12 +34,6 @@ jobs:
         git fetch --prune --unshallow
       continue-on-error: true
 
-    - name: Set branch output for input arg
-      run: echo "::set-output name=BRANCH_NAME::${GITHUB_REF##*/}"
-      id: BRANCH_NAME
-      env:
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true' 
-
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
@@ -118,7 +112,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         commit_message: Update generated README
-        branch: ${{ steps.BRANCH_NAME.outputs.BRANCH_NAME }}
         commit_user_name: ${{ github.actor }}
         commit_user_email: "${{ github.actor }}@users.noreply.github.com"
         commit_author: "${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>"
