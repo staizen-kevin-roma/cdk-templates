@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - main
+      - test-pr
   pull_request:
     types: [ opened, reopened, synchronize, edited ]
     branches:
       - main
-      - test-pr
       - test-pr-2
 
 jobs:
@@ -32,6 +32,9 @@ jobs:
       run: |
         git fetch --prune --unshallow
       continue-on-error: true
+    
+    - name: Branch name
+      run: echo running on branch ${GITHUB_REF##*/}
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
@@ -49,7 +52,6 @@ jobs:
       run: |
         cd cloudfront
         npm run build --if-present
-      continue-on-error: true
     - name: npm run test
       run: |
         cd cloudfront
@@ -95,7 +97,7 @@ jobs:
           -Dsonar.pullrequest.branch=${{ github.HEAD_REF }}
           -Dsonar.pullrequest.base=${{ github.BASE_REF }}
           -Dsonar.pullrequest.github.repository=${{ github.repository }}
-      if: always()
+      continue-on-error: true
       
     - name: Insert Quality Gate markdown in README
       uses: muesli/readme-scribe@master
@@ -112,7 +114,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         commit_message: Update generated README
-        branch: test-pr-2
+        branch: ${{ github.head_ref }}
         commit_user_name: staizen-kevin-roma
         commit_user_email: kevin.roma@staizen.com
         commit_author: staizen-kevin-roma <kevin.roma@staizen.com>
