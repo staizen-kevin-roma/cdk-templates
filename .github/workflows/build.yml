@@ -37,6 +37,8 @@ jobs:
         currentbranch="${GITHUB_REF##*/}"
         echo "::set-env name=BRANCH_NAME::$currentbranch"
         echo $BRANCH_NAME
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
