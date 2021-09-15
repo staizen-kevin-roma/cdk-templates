@@ -14,8 +14,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    env:
-      BRANCH_NAME: ${GITHUB_REF##*/}
 
     strategy:
       matrix:
@@ -33,6 +31,16 @@ jobs:
       run: |
         git fetch --prune --unshallow
       continue-on-error: true
+
+    - name: Set environment variable names
+      run: |
+        echo "::set-env name=BRANCH_NAME::${GITHUB_REF##*/}"
+      id: BRANCH_NAME
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true' 
+    
+    - name: Run test output
+      run: echo ${{ steps.BRANCH_NAME.outputs.BRANCH_NAME }}
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
@@ -89,7 +97,7 @@ jobs:
         args: >
           -Dsonar.qualitygate.wait=true
           -Dsonar.scm.provider=git
-          -Dsonar.branch.name=$BRANCH_NAME
+          -Dsonar.branch.name=${{ steps.BRANCH_NAME.outputs.BRANCH_NAME }}
           -Dsonar.javascript.lcov.reportPaths=cloudfront/output/coverage/jest/lcov.info
           -Dsonar.eslint.reportPaths=cloudfront/output/eslint-report.json
           -Dsonar.pullrequest.key=${{ github.event.number }}
