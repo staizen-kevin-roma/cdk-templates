@@ -49,6 +49,7 @@ jobs:
       run: |
         cd cloudfront
         npm run build --if-present
+      continue-on-error: true
     - name: npm run test
       run: |
         cd cloudfront
@@ -88,14 +89,14 @@ jobs:
         args: >
           -Dsonar.qualitygate.wait=true
           -Dsonar.scm.provider=git
-          -Dsonar.branch.name=test-pr
+          -Dsonar.branch.name=test-pr-2
           -Dsonar.javascript.lcov.reportPaths=cloudfront/output/coverage/jest/lcov.info
           -Dsonar.eslint.reportPaths=cloudfront/output/eslint-report.json
           -Dsonar.pullrequest.key=${{ github.event.number }}
           -Dsonar.pullrequest.branch=${{ github.HEAD_REF }}
           -Dsonar.pullrequest.base=${{ github.BASE_REF }}
           -Dsonar.pullrequest.github.repository=${{ github.repository }}
-      continue-on-error: true
+      if: always()
       
     - name: Insert Quality Gate markdown in README
       uses: muesli/readme-scribe@master
@@ -112,7 +113,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         commit_message: Update generated README
-        branch: test-pr
+        branch: test-pr-2
         commit_user_name: staizen-kevin-roma
         commit_user_email: kevin.roma@staizen.com
         commit_author: staizen-kevin-roma <kevin.roma@staizen.com>
