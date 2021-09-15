@@ -95,7 +95,6 @@ jobs:
         args: >
           -Dsonar.qualitygate.wait=true
           -Dsonar.scm.provider=git
-          -Dsonar.branch.name=${{ steps.BRANCH_NAME.outputs.BRANCH_NAME }}
           -Dsonar.javascript.lcov.reportPaths=cloudfront/output/coverage/jest/lcov.info
           -Dsonar.eslint.reportPaths=cloudfront/output/eslint-report.json
           -Dsonar.pullrequest.key=${{ github.event.number }}
