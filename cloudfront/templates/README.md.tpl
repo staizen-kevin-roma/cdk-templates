@@ -1,6 +1,6 @@
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=staizen-kevin-roma_cdk-templates)](https://sonarcloud.io/dashboard?id=staizen-kevin-roma_cdk-templates)
 
-[![CI](https://github.com/staizen-kevin-roma/cdk-templates/actions/workflows/build.yml/badge.svg?branch=test-pr-2)](https://github.com/staizen-kevin-roma/cdk-templates/actions)
+[![CI](https://github.com/staizen-kevin-roma/cdk-templates/actions/workflows/build.yml/badge.svg?branch=test-pr)](https://github.com/staizen-kevin-roma/cdk-templates/actions)
 [![NPM version](https://img.shields.io/badge/dynamic/json?color=blue&label=typescript&prefix=v&query=devDependencies.typescript&url=https%3A%2F%2Fraw.githubusercontent.com%2Fstaizen-kevin-roma%2Fcdk-templates%2Ftest-pr%2Fcloudfront%2Fpackage.json)](https://raw.githubusercontent.com/staizen-kevin-roma/cdk-templates/test-pr/cloudfront/package.json)
 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=staizen-kevin-roma_cdk-templates&metric=bugs)](https://sonarcloud.io/dashboard?id=staizen-kevin-roma_cdk-templates)
