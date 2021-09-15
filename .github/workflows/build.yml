@@ -92,6 +92,7 @@ jobs:
           -Dsonar.scm.provider=git
           -Dsonar.javascript.lcov.reportPaths=cloudfront/output/coverage/jest/lcov.info
           -Dsonar.eslint.reportPaths=cloudfront/output/eslint-report.json
+          -Dsonar.branch.name=${GITHUB_REF##*/}
           -Dsonar.pullrequest.key=${{ github.event.number }}
           -Dsonar.pullrequest.branch=${{ github.HEAD_REF }}
           -Dsonar.pullrequest.base=${{ github.BASE_REF }}
@@ -113,7 +114,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         commit_message: Update generated README
-        branch: ${{ github.head_ref }}
+        branch: ${GITHUB_REF##*/}
         commit_user_name: staizen-kevin-roma
         commit_user_email: kevin.roma@staizen.com
         commit_author: staizen-kevin-roma <kevin.roma@staizen.com>
