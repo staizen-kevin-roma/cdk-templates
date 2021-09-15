@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - test-pr
+      - develop
   #pull_request:
     #types: [ opened, reopened, synchronize, edited ]
     #branches:
@@ -90,7 +90,7 @@ jobs:
         args: >
           -Dsonar.qualitygate.wait=true
           -Dsonar.scm.provider=git
-          -Dsonar.branch.name=test-pr
+          -Dsonar.branch.name=${{ github.HEAD_REF }}
           -Dsonar.javascript.lcov.reportPaths=cloudfront/output/coverage/jest/lcov.info
           -Dsonar.eslint.reportPaths=cloudfront/output/eslint-report.json
           -Dsonar.pullrequest.key=${{ github.event.number }}
