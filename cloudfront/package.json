@@ -9,7 +9,7 @@
     "watch": "tsc -w",
     "test": "jest --coverage --coverageDirectory=output/coverage/jest",
     "lintjson": "eslint . --ext .ts -f json -o output/eslint-report.json",
-    "linthtml": "eslint . --ext .ts -f stylish -o output/eslint-report.html",
+    "linthtml": "eslint . --ext .ts -f html -o output/eslint-report.html",
     "cdk": "cdk"
   },
   "devDependencies": {
